@@ -1,2 +1,2 @@
 # displays
-lector "displays" ws18/19
+lecture "displays" ws18/19
