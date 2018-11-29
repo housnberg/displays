@@ -115,11 +115,13 @@ vector<Mat> GrayCodeUtil::generateHorizontalGraycodes(vector<Mat> graycodes, int
 	for (Mat graycode : graycodes) {
 		graycode = graycode.t();
 		resize(graycode, graycode, Size(width, width), 0, 0, INTER_NEAREST);
+		int offset = (width - height) / 2;
+		graycode = graycode(Rect(0, offset, width, height));
 		horizontalGraycodes.push_back(graycode);
 
 //		namedWindow(name, CV_WINDOW_AUTOSIZE);
 //		imshow(name, graycode);
-//		name += "_";
+//		name += ")_";
 	}
 
 	return horizontalGraycodes;

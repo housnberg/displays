@@ -22,18 +22,16 @@ void generateGrayCodeImages(uint width, uint height) {
 
 	Mat decodedColumns = GrayCodeUtil::decode(verticalGraycodes);
 
-	for (int row = 0; row < decodedColumns.size().height; row++) {
-		for (int col = 0; col < decodedColumns.size().width; col++) {
-			cout << "_" << decodedColumns.at<float>(row, col) << "_"  << endl;
-		}
-	}
+//	for (int row = 0; row < decodedColumns.size().height; row++) {
+//		for (int col = 0; col < decodedColumns.size().width; col++) {
+//			cout << "_" << decodedColumns.at<float>(row, col) << "_"  << endl;
+//		}
+//	}
 }
 
 int main(int argc, char** argv) {
 
 	generateGrayCodeImages(1024, 768);
-
-
 
 	waitKey(0);
 
