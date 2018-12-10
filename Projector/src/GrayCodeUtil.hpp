@@ -18,14 +18,12 @@ using namespace std;
 class GrayCodeUtil {
 public:
 	GrayCodeUtil();
-	static Mat decode(vector<Mat> capturedGraycodes);
-	static vector<Mat> generateGrayCode(int n);
-	static vector<Mat> generateVerticalGraycodes(vector<Mat> graycodes, int width, int height);
-	static vector<Mat> generateHorizontalGraycodes(vector<Mat> graycodes, int width, int height);
+	static vector<Mat> generateGrayCode(int n, bool inverted = false);
+	static vector<Mat> encode(vector<Mat> graycodes, int width, int height, bool columns = true);
+	static Mat decode(vector<Mat> capturedGraycodes, bool columns = true);
 
 private:
-	static char flipChar(char c);
-	static string graytoBinary(string gray);
+	static string grayToBinary(string gray);
 	static long binaryToDecimal(string binary);
 
 };
