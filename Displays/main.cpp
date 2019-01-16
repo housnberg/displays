@@ -17,8 +17,8 @@ void translateImg(Mat &img, int offsetx, int offsety){
 }
 
 // Define screen size
-const int SCREEN_WIDTH = 1400;
-const int SCREEN_HEIGHT = 1000;
+const int SCREEN_WIDTH = 700;
+const int SCREEN_HEIGHT = 500;
 
 int main(int argc, const char * argv[]) {
     
@@ -31,7 +31,7 @@ int main(int argc, const char * argv[]) {
     source_image = imread("/Users/tinstriborsohn/Desktop/Uni/Erstes Semester/Analyse und Design Eingebetteter Systeme/Aufgaben/3/Displays/original_images/hair.png", 1);
     
     // Resize image to half the resolution
-    Size size(900, 900);
+    Size size(400, 400);
     Mat destination_image;
     resize(source_image, destination_image, size);
     
@@ -43,11 +43,34 @@ int main(int argc, const char * argv[]) {
     imshow("Display", display);
 
     //Transform destination image diagonally along screen
+    int currentXPos = 0;
+    int currentYPos = 0;
+    bool backward = false;
+    
     while (true) {
         imshow("Display", display);
         waitKey(1);
         //update image translation
-        translateImg(display, 1, 1);
+        
+        if (backward == true) {
+            currentXPos -= 2;
+            currentYPos -= 1;
+            translateImg(display, -2, -1);
+        } else {
+            currentXPos += 2;
+            currentYPos += 1;
+            translateImg(display, 2, 1);
+        }
+        
+        
+        if (currentXPos == 200 ) {
+            backward = true;
+        } else if (currentXPos == 0){
+            backward = false;
+        }
+        
+        
+       
     }
     
     waitKey(0);
